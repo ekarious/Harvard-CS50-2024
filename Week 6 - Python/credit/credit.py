@@ -15,7 +15,7 @@ class Card:
         self.card_type = self.check_card_type()
         self.is_checksum_valid = self.checksum()
 
-    def  __len__(self) -> int:
+    def __len__(self) -> int:
         return len(self.card_number)
 
     def __str__(self):
