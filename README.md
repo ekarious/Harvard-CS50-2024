@@ -3,12 +3,12 @@ All my solutions to those little challanges.
 
 Note that only the files which need to be submitted are included.
 
-**PLEASE: DO NOT COPY THESE SOLUTIONS FOR YOUR OWN USE.**
+**PLEASE: DO NOT COPY THESE SOLUTIONS FOR YOUR OWN USE.**  
 **USE THEM AS A REFERENCE TO SOLVE THE PROBLEMS YOURSELF.**
 
 ## Week 1 - C
 
-- [Hello](./Week%201%20-%20C/hello/hello.c)
+- [Hello](./Week%201%20-%20C/world/hello.c)
 - [Mario Less](./Week%201%20-%20C/mario-less/mario.c)
 - [Mario More](./Week%201%20-%20C/mario-more/mario.c)
 - Cash (not done)
@@ -52,16 +52,16 @@ Note that only the files which need to be submitted are included.
 
 ## Week 7 - SQL
 
-- [Songs](./Week%207%20-%20SQL/songs)
-- [Movies](./Week%207%20-%20SQL/movies)
-- [Fiftyville]() (not done yet)
+- Songs
+- Movies
+- Fiftyville
 
 ## Week 8 - HTML, CSS, Javascript
 
-- [Trivia]()
-- [Homepage]()
+- Trivia
+- Homepage (not done)
 
 ## Week 9 - Flask
 
-- [Birthdays]()
-- [Finance]()
+- Birthdays (not done)
+- Finance (not done)
