@@ -45,7 +45,7 @@ Note that only the files which need to be submitted are included.
 - [Hello](./Week%206%20-%20Python/hello/hello.py)
 - [Mario Less](./Week%206%20-%20Python/mario-less/mario.py)
 - [Mario More](./Week%206%20-%20Python/mario-more/mario.py)
-- Cash (not done)
+- [Cash](./Week%206%20-%20Python/cash/cash.py)
 - [Credit](./Week%206%20-%20Python/credit/credit.py)
 - [Readbility](./Week%206%20-%20Python/readability/readability.py)
 - [DNA](./Week%206%20-%20Python/dna/dna.py)
