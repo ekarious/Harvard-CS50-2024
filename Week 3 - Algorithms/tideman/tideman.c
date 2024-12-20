@@ -1,5 +1,6 @@
 #include <cs50.h>
 #include <stdio.h>
+#include <string.h>
 
 // Max number of candidates
 #define MAX 9
@@ -26,6 +27,7 @@ int candidate_count;
 
 // Function prototypes
 bool vote(int rank, string name, int ranks[]);
+bool cycle_check(int winner, int loser);
 void record_preferences(int ranks[]);
 void add_pairs(void);
 void sort_pairs(void);
@@ -92,6 +94,41 @@ int main(int argc, string argv[])
     sort_pairs();
     lock_pairs();
     print_winner();
+
+    //------------- Test output starts
+
+    // printf("\n");
+
+    // for (int i = 0; i < candidate_count; ++i)
+    // {
+    //     for (int j = 0; j < candidate_count; ++j)
+    //     {
+    //         printf("preferences[%i][%i] = %i \n", i, j, preferences[i][j]);
+    //     }
+    // }
+    // printf("\n");
+
+    // for (int i = 0; i < pair_count; ++i)
+    // {
+    //     printf("%i pair: %i : %i \n", i, pairs[i].winner, pairs[i].loser);
+    // }
+    // printf("\n");
+
+    // printf("Total %i pairs \n", pair_count);
+    // printf("\n");
+
+    // printf("LEGEND True : 1, False : 0 \n");
+    // for (int i = 0; i < pair_count; ++i)
+    // {
+    //     for (int j = 0; j < pair_count; ++j)
+    //     {
+    //         printf("%i pair. Locked is %i \n", i, locked[i][j]);
+    //     }
+    // }
+    // printf("\n");
+
+    //------------- Test output ends
+
     return 0;
 }
 
@@ -99,6 +136,15 @@ int main(int argc, string argv[])
 bool vote(int rank, string name, int ranks[])
 {
     // TODO
+    for (int i = 0; i < candidate_count; ++i)
+    {
+        if (strcmp(name, candidates[i]) == 0)
+        {
+            ranks[rank] = i;
+            return true;
+        }
+    }
+
     return false;
 }
 
@@ -106,6 +152,17 @@ bool vote(int rank, string name, int ranks[])
 void record_preferences(int ranks[])
 {
     // TODO
+    for (int i = 0; i < candidate_count; ++i)
+    {
+        for (int j = 0; j < candidate_count; ++j)
+        {
+            if (i < j)
+            {
+                preferences[ranks[i]][ranks[j]]++;
+            }
+        }
+    }
+
     return;
 }
 
@@ -113,6 +170,21 @@ void record_preferences(int ranks[])
 void add_pairs(void)
 {
     // TODO
+    pair_count = 0;
+
+    for (int i = 0; i < candidate_count; ++i)
+    {
+        for (int j = 0; j < candidate_count; ++j)
+        {
+            if (i != j && preferences[i][j] > preferences[j][i])
+            {
+                pairs[pair_count].winner = i;
+                pairs[pair_count].loser = j;
+                pair_count++;
+            }
+        }
+    }
+
     return;
 }
 
@@ -120,6 +192,27 @@ void add_pairs(void)
 void sort_pairs(void)
 {
     // TODO
+    bool swaped = false;
+
+    for (int i = 0; i < pair_count - 1; ++i)
+    {
+        int left = preferences[pairs[i].winner][pairs[i].loser];
+        int right = preferences[pairs[i + 1].winner][pairs[i + 1].loser];
+        if (left < right)
+        {
+            pair temp = pairs[i];
+            pairs[i] = pairs[i + 1];
+            pairs[i + 1] = temp;
+
+            swaped = true;
+        }
+    }
+
+    if (swaped == true)
+    {
+        sort_pairs();
+    }
+
     return;
 }
 
@@ -127,12 +220,61 @@ void sort_pairs(void)
 void lock_pairs(void)
 {
     // TODO
+    for (int i = 0; i < pair_count; ++i)
+    {
+        if (!cycle_check(pairs[i].winner, pairs[i].loser))
+        {
+            locked[pairs[i].winner][pairs[i].loser] = true;
+        }
+    }
+
     return;
+}
+
+bool cycle_check(int winner, int loser)
+{
+    if (loser == winner)
+    {
+        return true;
+    }
+
+    for (int i = 0; i < candidate_count; ++i)
+    {
+        if (locked[loser][i] == true)
+        {
+            if (cycle_check(winner, i))
+            {
+                return true;
+            }
+        }
+    }
+
+    return false;
 }
 
 // Print the winner of the election
 void print_winner(void)
 {
     // TODO
+
+    for (int i = 0; i < candidate_count; ++i)
+    {
+        bool source = true;
+
+        for (int j = 0; j < candidate_count; ++j)
+        {
+            if (locked[j][i] == true)
+            {
+                source = false;
+                break;
+            }
+        }
+
+        if (source == true)
+        {
+            printf("%s\n", candidates[i]);
+        }
+    }
+
     return;
 }

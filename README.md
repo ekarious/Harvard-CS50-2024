@@ -11,7 +11,7 @@ Note that only the files which need to be submitted are included.
 - [Hello](./Week%201%20-%20C/world/hello.c)
 - [Mario Less](./Week%201%20-%20C/mario-less/mario.c)
 - [Mario More](./Week%201%20-%20C/mario-more/mario.c)
-- Cash (not done)
+- [Cash](./Week%201%20-%20C//cash/cash.c)
 - [Credit](./Week%201%20-%20C/credit/credit.c)
 
 ## Week 2 - Arrays
@@ -19,26 +19,26 @@ Note that only the files which need to be submitted are included.
 - [Scrabble](./Week%202%20-%20Arrays/scrabble/scrabble.c)
 - [Readability](./Week%202%20-%20Arrays/readability/readability.c)
 - [Caesar](./Week%202%20-%20Arrays/caesar/caesar.c)
-- Substitution (not done)
+- [Substitution](./Week%202%20-%20Arrays//substitution/substitution.c)
 
 ## Week 3 - Algorithms
 
 - [Sort](./Week%203%20-%20Algorithms/sort/sort.c)
 - [Plurality](./Week%203%20-%20Algorithms/plurality/plurality.c)
 - [Runoff](./Week%203%20-%20Algorithms/runoff/runoff.c)
-- Tideman (not done)
+- [Tideman](./Week%203%20-%20Algorithms/tideman/tideman.c)
 
 ## Week 4 - Memory
 
 - [Volume](./Week%204%20-%20Memory/volume/volume.c)
 - [Filter Less](./Week%204%20-%20Memory/filter-less/filter-less.c)
 - Filter More (not done)
-- Recover (not done)
+- [Recover](./Week%204%20-%20Memory/recover/recover.c)
 
 ## Week 5 - Data Structures
 
 - [Inheritance](./Week%205%20-%20Data%20Structures/inheritance/inheritance.c)
-- Speller (not done)
+- [Speller](./Week%205%20-%20Data%20Structures/speller/dictionary.c)
 
 ## Week 6 - Python
 
